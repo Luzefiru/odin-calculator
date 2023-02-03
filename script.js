@@ -14,3 +14,12 @@ function subtract(a,b)
 {
     return Number(a) - Number(b);
 }
+
+/**
+ * Multiplies {a} & {b} together and returns the result.
+ * Can accept 'string' or 'number' inputs.
+ */
+function multiply(a,b)
+{
+    return Number(a) * Number(b);
+}
