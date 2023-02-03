@@ -28,5 +28,14 @@ body {
     background-color: #cbfed8;
 
     height: 6rem;
+    padding: 1rem;
     border-radius: 0.2rem;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calculator__display__field {
+    font-size: 3.9rem;
 }
