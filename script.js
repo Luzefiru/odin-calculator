@@ -1,4 +1,24 @@
 /**
+ * Calls the respective operation on the operands {a} & {b} depending on the {operator} argument.
+ * 
+ * @param {string} a the first operand
+ * @param {string} operator the operation to execute on the operands
+ * @param {string} b the second operand
+ * @returns 
+ */
+function operate(a, operator, b)
+{
+    const availableOperations = {
+        '+': add(a,b),
+        '-': subtract(a,b),
+        '*': multiply(a,b),
+        '/': divide(a,b),
+    };
+
+    return availableOperations[operator];
+}
+
+/**
  * Adds two numbers {a} & {b} together and returns the result.
  * Can accept 'string' or 'number' inputs.
  */
