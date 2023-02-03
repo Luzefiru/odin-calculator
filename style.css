@@ -18,8 +18,16 @@
 
 body {
     display: flex;
-    justify-content: center;
-    margin: 5rem 0; /* TODO: adjust later when calculator is finished */
+    align-items: center;
+    flex-direction: column;
+    margin: 4rem 0; /* TODO: adjust later when calculator is finished */
+
+    background: linear-gradient(to bottom left, lemonchiffon, lightgrey)
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: large;
 }
 
 .calculator {
