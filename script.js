@@ -1,6 +1,7 @@
 let displayValue = '0';
 let bufferDisplayValue = null;
 let bufferOperation = null;
+let appendFlag = false;
 
 let displayField = document.querySelector('.calculator__display__field');
 displayField.textContent = displayValue;
@@ -37,8 +38,11 @@ numberButtonsList.forEach((btn) => {
         btn.addEventListener('click', () => {
             // set the text to '0' to allow for inputting numbers right after pressing an immature operation
             // while the actual result is in {bufferDisplayValue}
-            if (bufferOperation != null)
+            if (bufferOperation != null && !appendFlag)
+            {
                 setDisplayText('0');
+                appendFlag = true; // stops overwriting
+            }
             appendNumberToDisplay(btn.textContent);
         });
     }
@@ -78,13 +82,14 @@ function equal() {
     let result = operate(bufferDisplayValue, bufferOperation, displayValue);
     // rounds the number to prevent overflow when it has more than 13 digits
     if (String(result).length > 13) {
-        result = result.toFixed(11);
+        result = result.toPrecision(12);
     }
 
     console.log('result = ' + result); // TODO: delete when program is stable
 
     bufferDisplayValue = null;
     bufferOperation = null;
+    appendFlag = false; // allow overwrite
     setDisplayText(result);
 }
 
