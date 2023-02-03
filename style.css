@@ -11,10 +11,22 @@ body {
 }
 
 .calculator {
-    background-color: hsl(0, 0%, 50%);
+    background-color: #59b09b;
     width: 32rem;
     height: 40rem;
+    
+    padding: 1.5rem;
 
     border-radius: 0.2rem;
-    box-shadow: 0.3rem 0.3rem hsl(0, 0%, 23%);
+    box-shadow: 0.3rem 0.3rem #348672;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator__display {
+    background-color: #cbfed8;
+
+    height: 6rem;
+    border-radius: 0.2rem;
 }
