@@ -34,7 +34,13 @@ operationButtonsList.forEach((btn) => {
 numberButtonsList.forEach((btn) => {
     if ('0123456789'.includes(btn.textContent))
     {
-        btn.addEventListener('click', () => appendNumberToDisplay(btn.textContent));
+        btn.addEventListener('click', () => {
+            // set the text to '0' to allow for inputting numbers right after pressing an immature operation
+            // while the actual result is in {bufferDisplayValue}
+            if (bufferOperation != null)
+                setDisplayText('0');
+            appendNumberToDisplay(btn.textContent);
+        });
     }
         
 });
@@ -46,13 +52,17 @@ numberButtonsList.forEach((btn) => {
  * @param {string} operation the operation to add to bufferOperation
  */
 function readyOperation(operation) {
-    // if there is an operation pending, execute the '=' button first
+    // if there is an operation pending, execute the '=' button first & show result immediately
     if (bufferOperation != null) {
         equal();
+        bufferDisplayValue = displayValue;
+        bufferOperation = operation;
+        return;
     }
 
     bufferDisplayValue = displayValue;
     bufferOperation = operation;
+    
     setDisplayText('0');
 }
 
@@ -115,14 +125,12 @@ function appendNumberToDisplay(num) {
  */
 function operate(a, operator, b)
 {
-    const availableOperations = {
-        '+': add(a,b),
-        '-': subtract(a,b),
-        '×': multiply(a,b),
-        '÷': divide(a,b),
-    };
-
-    return availableOperations[operator];
+    switch(operator) {
+        case '+': return add(a,b); break;
+        case '-': return subtract(a,b); break;
+        case '×': return multiply(a,b); break;
+        case '÷': return divide(a,b); break;
+    }
 }
 
 /**
