@@ -55,3 +55,8 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.calculator__button-panel button {
+    height: 5.5rem;
+    width: 5.5rem;
+}
