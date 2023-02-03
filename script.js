@@ -3,6 +3,23 @@ let displayValue = '0';
 let displayField = document.querySelector('.calculator__display__field');
 displayField.textContent = displayValue;
 let numberButtonsList = document.querySelectorAll('.calculator__button-panel__numbers > button');
+let clsButton = document.querySelector('.clear-and-delete__clear');
+let deleteButton = document.querySelector('.clear-and-delete__delete');
+
+// delete button functionality
+deleteButton.addEventListener('click', () => {
+    displayValue = (displayValue.length == 1)
+    ? '0'
+    : displayValue.slice(1);
+
+    displayField.textContent = displayValue;
+})
+
+// cls button functionality
+clsButton.addEventListener('click', () => {
+    displayValue = '0';
+    displayField.textContent = displayValue;
+})
 
 // adds the appendNumberToDisplay() function to each numeric button
 numberButtonsList.forEach((btn) => {
