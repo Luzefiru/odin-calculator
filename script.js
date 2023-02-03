@@ -1,3 +1,25 @@
+let displayValue = '0';
+
+let displayField = document.querySelector('.calculator__display__field');
+displayField.textContent = displayValue;
+
+/**
+ * Appends the argument {num} to the rightmost side of the Calculator's text display
+ * 
+ * NOTE: The text area can only hold 13 numbers without overflowing.
+ * 
+ * @param {string} num the number to append.
+ */
+function appendNumberToDisplay(num) {
+    // clear the default '0' string first before appending a stringized number
+    if (displayValue === '0') 
+        displayValue = num;
+    else
+        displayValue += String(num);
+
+    displayField.textContent = displayValue;
+}
+
 /**
  * Calls the respective operation on the operands {a} & {b} depending on the {operator} argument.
  * 
