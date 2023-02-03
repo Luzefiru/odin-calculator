@@ -2,6 +2,16 @@ let displayValue = '0';
 
 let displayField = document.querySelector('.calculator__display__field');
 displayField.textContent = displayValue;
+let numberButtonsList = document.querySelectorAll('.calculator__button-panel__numbers > button');
+
+// adds the appendNumberToDisplay() function to each numeric button
+numberButtonsList.forEach((btn) => {
+    if ('0123456789'.includes(btn.textContent))
+    {
+        btn.addEventListener('click', () => appendNumberToDisplay(btn.textContent));
+    }
+        
+});
 
 /**
  * Appends the argument {num} to the rightmost side of the Calculator's text display
