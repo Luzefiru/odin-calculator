@@ -1,6 +1,6 @@
 let displayValue = '0';
 let bufferDisplayValue = null;
-let selectedOperation = null;
+let bufferOperation = null;
 
 let displayField = document.querySelector('.calculator__display__field');
 displayField.textContent = displayValue;
@@ -11,6 +11,8 @@ let deleteButton = document.querySelector('.clear-and-delete__delete');
 let equalButton = document.querySelector('.number__equal');
 equalButton.addEventListener('click', () => equal());
 
+let operationButtonsList = document.querySelectorAll('.calculator__button-panel__operations > button');
+
 // delete button functionality
 deleteButton.addEventListener('click', () => {
     setDisplayText((displayValue.length == 1) ? '0': displayValue.slice(0, displayValue.length-1));
@@ -18,8 +20,15 @@ deleteButton.addEventListener('click', () => {
 
 // cls button functionality
 clsButton.addEventListener('click', () => {
+    bufferDisplayValue = null;
+    bufferOperation = null;
     setDisplayText('0');
 })
+
+// adds functionality to each operation button
+operationButtonsList.forEach((btn) => {
+    btn.addEventListener('click', () => readyOperation(btn.textContent));
+});
 
 // adds the appendNumberToDisplay() function to each numeric button
 numberButtonsList.forEach((btn) => {
@@ -31,17 +40,30 @@ numberButtonsList.forEach((btn) => {
 });
 
 /**
- * Performs the operation based on the buffer variables {selectedOperation} and {bufferDisplayValue}
+ * Executed whenever an operation button (other than =) is pressed.
+ * Readies the variables for the operation when the = button is pressed.
+ * 
+ * @param {string} operation the operation to add to bufferOperation
+ */
+function readyOperation(operation) {
+    bufferDisplayValue = displayValue;
+    bufferOperation = operation;
+    setDisplayText('0');
+}
+
+/**
+ * Performs the operation based on the buffer variables {bufferOperation} and {bufferDisplayValue}
  * then sets them to 'null' to prepare for the next operation.
  */
 function equal() {
     // Does nothing when no operation is set yet.
-    if (selectedOperation === null)
+    if (bufferOperation === null)
         return;
 
-    let result = operate(bufferDisplayValue, selectedOperation, displayValue);
+    let result = operate(bufferDisplayValue, bufferOperation, displayValue);
+    console.log(result);
     bufferDisplayValue = null;
-    selectedOperation = null;
+    bufferOperation = null;
     setDisplayText(result);
 }
 
@@ -85,8 +107,8 @@ function operate(a, operator, b)
     const availableOperations = {
         '+': add(a,b),
         '-': subtract(a,b),
-        '*': multiply(a,b),
-        '/': divide(a,b),
+        '×': multiply(a,b),
+        '÷': divide(a,b),
     };
 
     return availableOperations[operator];
