@@ -81,12 +81,12 @@ function equal() {
 
     let result = operate(bufferDisplayValue, bufferOperation, displayValue);
     // rounds the number to prevent overflow when it is a big number with the 'e' notation
-    if (String(result).length > 13 && String(result).includes('.') == false) {
+    if (String(result).length > 13 && String(result).includes('.') == false || String(result).includes('e')) {
         result = result.toPrecision(8)
     }
     // rounds the number to prevent overflow when has long decimal spaces
     else if (String(result).includes('.')) {
-        result = result.toPrecision(12);
+        result = result.toFixed(12);
     }
 
     console.log('result = ' + result); // TODO: delete when program is stable
