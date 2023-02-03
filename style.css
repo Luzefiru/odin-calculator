@@ -29,7 +29,7 @@ body {
     
     padding: 1.5rem;
 
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem #348672;
 
     display: flex;
@@ -41,7 +41,7 @@ body {
 
     height: 6rem;
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
 
     display: flex;
     justify-content: flex-end;
@@ -60,7 +60,7 @@ body {
 
     height: 30rem;
     padding: 1rem;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
 
     display: flex;
 }
