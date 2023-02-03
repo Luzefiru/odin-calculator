@@ -47,8 +47,14 @@ function multiply(a,b)
 /**
  * Divides {a} by {b} and returns the result.
  * Can accept 'string' or 'number' inputs.
+ * Alerts the user when the divisor is 0.
  */
 function divide(a,b)
 {
+    if (Number(b) == 0)
+    {
+        alert("Cannot divide by 0. Try again!");
+        location.reload(); // reloads the webpage
+    }
     return Number(a) / Number(b);
 }
