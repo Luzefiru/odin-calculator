@@ -46,13 +46,24 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    margin-bottom: 1rem;
 }
 
 .calculator__display__field {
     font-size: 4.5rem;
     font-family: 'Digital-7 Mono';
+}
+
+.calculator__clear-and-delete {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0.65rem 0;
+    padding-right: 1rem;
+}
+
+.calculator__clear-and-delete > button {
+    margin-left: 0.5rem;
+    width: 3rem;
 }
 
 .calculator__button-panel {
