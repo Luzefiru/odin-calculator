@@ -1,4 +1,6 @@
 let displayValue = '0';
+let bufferDisplayValue = null;
+let selectedOperation = null;
 
 let displayField = document.querySelector('.calculator__display__field');
 displayField.textContent = displayValue;
@@ -6,19 +8,17 @@ let numberButtonsList = document.querySelectorAll('.calculator__button-panel__nu
 let clsButton = document.querySelector('.clear-and-delete__clear');
 let deleteButton = document.querySelector('.clear-and-delete__delete');
 
+let equalButton = document.querySelector('.number__equal');
+equalButton.addEventListener('click', () => equal());
+
 // delete button functionality
 deleteButton.addEventListener('click', () => {
-    displayValue = (displayValue.length == 1)
-    ? '0'
-    : displayValue.slice(0, displayValue.length-1);
-
-    displayField.textContent = displayValue;
+    setDisplayText((displayValue.length == 1) ? '0': displayValue.slice(0, displayValue.length-1));
 })
 
 // cls button functionality
 clsButton.addEventListener('click', () => {
-    displayValue = '0';
-    displayField.textContent = displayValue;
+    setDisplayText('0');
 })
 
 // adds the appendNumberToDisplay() function to each numeric button
@@ -29,6 +29,31 @@ numberButtonsList.forEach((btn) => {
     }
         
 });
+
+/**
+ * Performs the operation based on the buffer variables {selectedOperation} and {bufferDisplayValue}
+ * then sets them to 'null' to prepare for the next operation.
+ */
+function equal() {
+    // Does nothing when no operation is set yet.
+    if (selectedOperation === null)
+        return;
+
+    let result = operate(bufferDisplayValue, selectedOperation, displayValue);
+    bufferDisplayValue = null;
+    selectedOperation = null;
+    setDisplayText(result);
+}
+
+/**
+ * Changes the calculator display text field to the argument {num}.
+ * 
+ * @param {string} num the number to set to
+ */
+function setDisplayText(num) {
+    displayValue = String(num);
+    displayField.textContent = displayValue;
+}
 
 /**
  * Appends the argument {num} to the rightmost side of the Calculator's text display
