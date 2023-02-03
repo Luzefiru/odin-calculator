@@ -61,11 +61,18 @@ function readyOperation(operation) {
  * then sets them to 'null' to prepare for the next operation.
  */
 function equal() {
-    // Does nothing when no operation is set yet.
+    // does nothing when no operation is set yet.
     if (bufferOperation === null)
         return;
 
     let result = operate(bufferDisplayValue, bufferOperation, displayValue);
+    // rounds the number to prevent overflow when it has more than 13 digits
+    if (String(result).length > 13) {
+        result = result.toFixed(11);
+    }
+
+    console.log('result = ' + result); // TODO: delete when program is stable
+
     bufferDisplayValue = null;
     bufferOperation = null;
     setDisplayText(result);
