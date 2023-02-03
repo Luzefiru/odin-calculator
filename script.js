@@ -46,6 +46,11 @@ numberButtonsList.forEach((btn) => {
  * @param {string} operation the operation to add to bufferOperation
  */
 function readyOperation(operation) {
+    // if there is an operation pending, execute the '=' button first
+    if (bufferOperation != null) {
+        equal();
+    }
+
     bufferDisplayValue = displayValue;
     bufferOperation = operation;
     setDisplayText('0');
@@ -61,7 +66,6 @@ function equal() {
         return;
 
     let result = operate(bufferDisplayValue, bufferOperation, displayValue);
-    console.log(result);
     bufferDisplayValue = null;
     bufferOperation = null;
     setDisplayText(result);
