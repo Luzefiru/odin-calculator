@@ -23,3 +23,12 @@ function multiply(a,b)
 {
     return Number(a) * Number(b);
 }
+
+/**
+ * Divides {a} by {b} and returns the result.
+ * Can accept 'string' or 'number' inputs.
+ */
+function divide(a,b)
+{
+    return Number(a) / Number(b);
+}
