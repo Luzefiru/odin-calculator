@@ -5,6 +5,16 @@
 }
 
 body {
-    text-align: center;
-    margin: 5rem 0;
+    display: flex;
+    justify-content: center;
+    margin: 5rem 0; /* TODO: adjust later when calculator is finished */
+}
+
+.calculator {
+    background-color: hsl(0, 0%, 50%);
+    width: 32rem;
+    height: 40rem;
+
+    border-radius: 0.2rem;
+    box-shadow: 0.3rem 0.3rem hsl(0, 0%, 23%);
 }
