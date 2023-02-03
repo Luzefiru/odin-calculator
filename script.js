@@ -33,7 +33,7 @@ operationButtonsList.forEach((btn) => {
 
 // adds the appendNumberToDisplay() function to each numeric button
 numberButtonsList.forEach((btn) => {
-    if ('0123456789'.includes(btn.textContent))
+    if ('0123456789.'.includes(btn.textContent))
     {
         btn.addEventListener('click', () => {
             // set the text to '0' to allow for inputting numbers right after pressing an immature operation
