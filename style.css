@@ -37,8 +37,21 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    margin-bottom: 1rem;
 }
 
 .calculator__display__field {
     font-size: 3.7rem;
+}
+
+.calculator__button-panel {
+    background-color: gainsboro;
+
+    height: 30rem;
+    padding: 1rem;
+    border-radius: 0.2rem;
+
+    display: flex;
+    justify-content: center;
 }
