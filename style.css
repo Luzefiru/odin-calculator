@@ -51,7 +51,7 @@ body {
 .calculator__display__field {
     font-size: 4.5rem;
     font-family: 'Digital-7 Mono';
-    overflow: scroll; /* prevent overflow by adding a scrollbar to the display when the number is too big */
+    overflow: auto; /* prevent overflow by adding a scrollbar to the display when the number is too big */
 }
 
 .calculator__clear-and-delete {
