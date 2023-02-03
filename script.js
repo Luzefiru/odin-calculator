@@ -10,7 +10,7 @@ let deleteButton = document.querySelector('.clear-and-delete__delete');
 deleteButton.addEventListener('click', () => {
     displayValue = (displayValue.length == 1)
     ? '0'
-    : displayValue.slice(1);
+    : displayValue.slice(0, displayValue.length-1);
 
     displayField.textContent = displayValue;
 })
