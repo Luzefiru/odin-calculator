@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+@font-face {
+    font-family: 'Digital-7 Mono';
+    src: url('./font/Digital-7Mono.woff2') format('woff2'),
+        url('./font/Digital-7Mono.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -42,7 +51,8 @@ body {
 }
 
 .calculator__display__field {
-    font-size: 3.7rem;
+    font-size: 4.5rem;
+    font-family: 'Digital-7 Mono';
 }
 
 .calculator__button-panel {
@@ -80,4 +90,10 @@ body {
 .calculator__button-panel > * > button {
     height: 5.5rem;
     width: 5.5rem;
+
+    font-size: 4rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
