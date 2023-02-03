@@ -53,10 +53,31 @@ body {
     border-radius: 0.2rem;
 
     display: flex;
-    justify-content: center;
 }
 
-.calculator__button-panel button {
+.calculator__button-panel__numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator__button-panel__numbers > button {
+    margin: 0.5rem;
+}
+
+.calculator__button-panel__operations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.calculator__button-panel__operations > button {
+    margin: 0.5rem;
+}
+
+.calculator__button-panel > * > button {
     height: 5.5rem;
     width: 5.5rem;
 }
