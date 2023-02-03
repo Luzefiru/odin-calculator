@@ -80,8 +80,12 @@ function equal() {
         return;
 
     let result = operate(bufferDisplayValue, bufferOperation, displayValue);
-    // rounds the number to prevent overflow when it has more than 13 digits
-    if (String(result).length > 13) {
+    // rounds the number to prevent overflow when it is a big number with the 'e' notation
+    if (String(result).length > 13 && String(result).includes('.') == false) {
+        result = result.toPrecision(8)
+    }
+    // rounds the number to prevent overflow when has long decimal spaces
+    else if (String(result).includes('.')) {
         result = result.toPrecision(12);
     }
 
